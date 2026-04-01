@@ -38,4 +38,27 @@ router.post("/github-token", async (req, res) => {
   }
 });
 
+router.get("/github/callback", (req, res) => {
+  const { code, state } = req.query;
+  
+  if (!code || !state) {
+    return res.status(400).send("Missing code or state");
+  }
+
+  try {
+    const stateObj = JSON.parse(decodeURIComponent(state));
+    const { redirectUri, csrf } = stateObj;
+    
+    // Bounce the request back to the Expo app's deep link
+    res.redirect(`${redirectUri}?code=${code}&state=${csrf}`);
+  } catch (error) {
+    console.error("Callback parsing error:", error);
+    // Fallback if state was not JSON
+    if (state.startsWith("exp://") || state.startsWith("smart-skill-hub://") || state.startsWith("10.")) {
+      return res.redirect(`${state}?code=${code}`);
+    }
+    res.status(400).send("Invalid state parameter");
+  }
+});
+
 export default router;
