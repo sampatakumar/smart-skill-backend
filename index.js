@@ -27,6 +27,11 @@ app.get("/", (req, res) => {
   res.send("🚀 Smart Skill Hub Backend Running");
 });
 
+app.get("/api/author", (req, res) => {
+  res.send("Sampatakumar")
+  res.send("git : https://github.com/sampatakumar")
+});
+
 app.use("/api/users", userRoutes);
 
 // Start server
