@@ -6,11 +6,11 @@
   "author": "sampatakumar",
   "type": "module",
   "main": "index.js",
-  "scripts": {
-    "test": "node index.js",
-    "dev": "nodemon index.js"
-    
-  },
+ "scripts": {
+  "build": "echo 'No build step needed' && exit 0",
+  "dev": "nodemon index.js",
+  "start": "node index.js"
+},
   "dependencies": {
     "cors": "^2.8.6",
     "dns": "^0.2.2",
