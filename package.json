@@ -1,0 +1,22 @@
+{
+  "name": "smart-skill-backend",
+  "version": "1.0.0",
+  "description": "Backend for Smart-Skill-Hub",
+  "license": "ISC",
+  "author": "sampatakumar",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "test": "nodemon index.js"
+  },
+  "dependencies": {
+    "cors": "^2.8.6",
+    "dns": "^0.2.2",
+    "dotenv": "^17.3.1",
+    "express": "^5.2.1",
+    "firebase-admin": "^13.7.0",
+    "mongodb": "^7.1.1",
+    "mongoose": "^9.3.3",
+    "nodemon": "^3.1.14"
+  }
+}
